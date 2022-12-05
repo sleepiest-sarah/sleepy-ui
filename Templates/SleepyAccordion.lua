@@ -31,12 +31,12 @@ end
 
 --[[
   items = {
-    {text="header display text" children={
-                                  {text="item 1" key="item callback key"},
-                                  {text="item 2" key="item 2 callback key"}
+    {text="header display text", children={
+                                  {text="item 1", key="item callback key"},
+                                  {text="item 2", key="item 2 callback key"}
                                 }
     },
-    {text="header 2 display text" children={...}}
+    {text="header 2 display text", children={...}}
   }
 --]]
 function SleepyAccordionMixin:SetAccordionItems(items)
@@ -44,7 +44,7 @@ function SleepyAccordionMixin:SetAccordionItems(items)
   
   self.headerPool:ReleaseAll()
   self.itemPool:ReleaseAll()
-  
+
   self.children = {}
   for i, header in ipairs(items) do
     local headerFrame = self.headerPool:Acquire()
@@ -59,18 +59,26 @@ function SleepyAccordionMixin:SetAccordionItems(items)
 
     headerFrame:Show()
     table.insert(self.children,headerFrame)
-    
-    for _,sub in ipairs(header.children) do
-      local subFrame = self.itemPool:Acquire()
-      sub.frame = subFrame
-      subFrame:SetNormalFontObject(self.font)
-      subFrame.key = sub.key or sub.text
-      subFrame:SetText(sub.text)
-      
-      self:OnAcquire(subFrame)
-      
-      subFrame:Show()
-      table.insert(self.children, subFrame)
+    if (header.children) then
+      for _,sub in ipairs(header.children) do
+        
+        local subFrame = self.itemPool:Acquire()
+        sub.frame = subFrame
+
+        if (subFrame.SetNormalFontObject) then
+          subFrame:SetNormalFontObject(self.font)
+        else
+          subFrame:SetFontObject(self.font)
+        end
+        
+        subFrame.key = sub.key or sub.text
+        subFrame:SetText(sub.text)
+        
+        self:OnAcquire(subFrame)
+        
+        subFrame:Show()
+        table.insert(self.children, subFrame)
+      end
     end
   end
   

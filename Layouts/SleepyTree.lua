@@ -1,4 +1,4 @@
-function SleepyLayout.List(content, children)
+function SleepyLayout.Tree(content, children)
   content.rowPadding = content.rowPadding or 0
 
   local width = content:GetWidth() or 0
@@ -15,15 +15,18 @@ function SleepyLayout.List(content, children)
       end
     else
       local elder_sibling = children[i-1]
+      local ident = child.depth * content.ident
       if (elder_sibling:IsShown()) then
-        child:SetPoint("TOPLEFT", children[i-1], "BOTTOMLEFT", 0, -content.rowPadding)
+        child:SetPoint("TOP", children[i-1], "BOTTOM", 0, -content.rowPadding)
+        child:SetPoint("LEFT", content, "LEFT", ident, -content.rowPadding)
         if (content.rightPadding > 0) then
-          child:SetPoint("TOPRIGHT", children[i-1], "BOTTOMRIGHT", 0, -content.rowPadding)
+          child:SetPoint("RIGHT", content, "RIGHT", ident, -content.rowPadding)
         end
       else
-        child:SetPoint("TOPLEFT", children[i-1], "TOPLEFT", 0, 0)
+        child:SetPoint("TOP", children[i-1], "TOP", 0, 0)
+        child:SetPoint("LEFT", content, "LEFT", ident, -content.rowPadding)
         if (content.rightPadding > 0) then
-          child:SetPoint("TOPRIGHT", children[i-1], "TOPRIGHT", 0, 0)
+          child:SetPoint("RIGHT", content, "RIGHT", ident, -content.rowPadding)
         end
       end
     end

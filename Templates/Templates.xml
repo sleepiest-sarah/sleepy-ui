@@ -6,5 +6,6 @@
   <Include file="SleepyTable.xml" />
   <Include file="SleepyAccordion.xml" />
   <Include file="SleepyTextList.xml" />
+  <Include file="SleepyTree.xml"/>
 
 </Ui>

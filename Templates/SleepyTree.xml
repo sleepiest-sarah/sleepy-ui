@@ -1,0 +1,13 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+
+  <Script file="SleepyTree.lua"/>
+	<Frame name="SleepyTree" mixin="SleepyTreeMixin" inherits="SleepyContainer" virtual="true">
+    <KeyValues>
+      <KeyValue key="layout" value="Tree" />
+      
+      <KeyValue key="font" value="GameFontWhite" />
+      <KeyValue key="ident" value="10" />
+    </KeyValues>
+	</Frame>
+  
+</Ui>
