@@ -1,0 +1,7 @@
+## Interface: 10002
+## Title: SleepyUI
+## Author: Sarah Mantovani
+## Version: 0.1
+## Dependencies: SleepyUI
+
+SleepyUI.xml

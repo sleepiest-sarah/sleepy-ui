@@ -6,5 +6,6 @@
   <Script file="SleepyList.lua" />
   <Script file="SleepyTable.lua" />
   <Script file="SleepyTree.lua" />
+  <Script file="SleepyHorizontalList.lua"/>
 
 </Ui>

@@ -27,3 +27,7 @@ function SleepyCustomizableItemMixin:SetFontStringOptions(fs, options)
     fs:SetFontObject(options.font)
   end
 end
+
+function SleepyCustomizableItemMixin:SetItemTemplate(template)
+  self._itemTemplate = template
+end

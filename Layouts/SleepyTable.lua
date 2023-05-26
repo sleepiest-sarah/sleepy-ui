@@ -1,7 +1,7 @@
 
 --similar to the Grid layout but doesn't try to use the full available height and won't resize children
 function SleepyLayout.Table (content, children)
-  local num_cols = content.num_columns
+  local num_cols = content.numColumns
   
   local col_width = (content:GetWidth() - content.leftPadding - content.rightPadding) / num_cols
   

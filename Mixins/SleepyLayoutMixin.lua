@@ -1,5 +1,14 @@
 SleepyLayoutMixin = {}
 
+SleepyLayoutMixin.topPadding = 0
+SleepyLayoutMixin.bottomPadding = 0
+SleepyLayoutMixin.leftPadding = 0
+SleepyLayoutMixin.rightPadding = 0
+
+function SleepyLayoutMixin:SetLayout(layout)
+  self.layout = layout
+end
+
 function SleepyLayoutMixin:DoLayout(children, layoutFunc)
   if (self.layout) then
     layoutFunc = SleepyLayout[self.layout]
@@ -16,3 +25,4 @@ function SleepyLayoutMixin:ResizeToFitChildren()
   end
   self:SetHeight(height)
 end
+

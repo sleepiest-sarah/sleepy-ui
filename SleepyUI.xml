@@ -2,6 +2,7 @@
   
   <Script file="SleepyUI.lua" />
   
+  <Include file="Formatters\Formatters.xml" />
   <Include file="Mixins\Mixins.xml" />
   <Include file="Layouts\Layouts.xml" />
   <Include file="Templates\Templates.xml" />

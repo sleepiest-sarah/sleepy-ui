@@ -6,7 +6,7 @@ function SleepyLayout.List(content, children)
   
   for i = 1, #children do
     local child = children[i]
-    
+
     child:ClearAllPoints()
     if i == 1 then
       child:SetPoint("TOPLEFT", content, "TOPLEFT", content.leftPadding, -content.topPadding)
